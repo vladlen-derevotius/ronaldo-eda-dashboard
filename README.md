@@ -11,7 +11,7 @@
 - src/data_loader.py — модуль с функциями очистки и предобработки данных (используется и в ноутбуке, и в приложении).
 
 ##  Live Demo
- [Открыть дашборд на Streamlit Cloud](#)  
+ [Открыть дашборд на Streamlit Cloud](https://ronaldo-eda-dashboard.streamlit.app/)  
 **
 
 ## 🛠 Технологии
