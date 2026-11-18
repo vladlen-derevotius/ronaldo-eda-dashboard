@@ -76,6 +76,8 @@ with row1_col1:
     ax1.tick_params(axis='x', rotation=45)
     sns.despine(ax=ax1)
     st.pyplot(fig1, clear_figure=True)
+    ax1.set_xlabel("Сезон")
+    ax1.set_ylabel("Количество голов")
 
 with row1_col2:
     st.subheader(" Способы голов")
@@ -85,6 +87,8 @@ with row1_col2:
     sns.barplot(data=method_counts, y="method", x="goals", hue="method", palette="crest", legend=False, ax=ax2)
     sns.despine(ax=ax2)
     st.pyplot(fig2, clear_figure=True)
+    ax2.set_xlabel("Количество голов")
+    ax2.set_ylabel("Способ гола")
 
 st.divider()
 
@@ -100,6 +104,8 @@ with row2_col1:
     sns.barplot(data=interval_counts, x="interval", y="goals", hue="interval", palette="rocket", legend=False, ax=ax3)
     sns.despine(ax=ax3)
     st.pyplot(fig3, clear_figure=True)
+    ax3.set_xlabel("Интервал матча")
+    ax3.set_ylabel("Количество голов")
 
 with row2_col2:
     st.subheader(" Топ-10 соперников")
@@ -109,6 +115,8 @@ with row2_col2:
     sns.barplot(data=opp_counts, y="opponent", x="goals", hue="opponent", palette="magma", legend=False, ax=ax4)
     sns.despine(ax=ax4)
     st.pyplot(fig4, clear_figure=True)
+    ax4.set_xlabel("Количество голов")
+    ax4.set_ylabel("Соперник")
 
 st.divider()
 

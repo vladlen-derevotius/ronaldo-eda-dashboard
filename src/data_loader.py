@@ -27,4 +27,34 @@ def load_data(filepath="data/ronaldo_goals_kaggle_ready.csv"):
         return np.nan
     df["minute_approx"] = df["goal_minute_bucket"].apply(parse_bucket)
         
+       
+    method_map = {
+        "Right-footed shot": "Удар правой",
+        "Penalty": "Пенальти",
+        "Left-footed shot": "Удар левой",
+        "Header": "Игра головой",
+        "Direct free kick": "Штрафной удар",
+        "Tap-in": "Добивание",
+        "Long distance kick": "Дальний удар",
+        "Counter attack goal": "Контратака",
+        "Not reported": "Нет данных",
+        "Penalty rebound": "Добивание с пенальти",
+        "Solo run": "Сольный проход",
+        "Deflected shot on goal": "Рикошет"
+    }
+    if "goal_method" in df.columns:
+        df["goal_method"] = df["goal_method"].replace(method_map)
+
+    comp_map = {
+        "La Liga": "Ла Лига",
+        "UEFA Champions League": "Лига Чемпионов",
+        "Premier League": "АПЛ",
+        "Serie A": "Серия А",
+        "International": "Сборная",
+        "FIFA World Cup": "ЧМ",
+        "UEFA European Championship": "ЧЕ"
+    }
+    if "competition" in df.columns:
+        df["competition"] = df["competition"].replace(comp_map)
+
     return df
