@@ -50,7 +50,7 @@ if filtered_df.empty:
 
 
 col1, col2, col3, col4 = st.columns(4)
-penalties = len(filtered_df[filtered_df["goal_method"].str.contains("Penalty", case=False, na=False)])
+penalties = len(filtered_df[filtered_df["goal_method"].str.contains("Пенальти", case=False, na=False)])
 top_opponent = filtered_df["opponent"].mode()[0] if not filtered_df["opponent"].mode().empty else "-"
 top_interval = filtered_df["goal_minute_bucket"].mode()[0] if not filtered_df["goal_minute_bucket"].mode().empty else "-"
 
@@ -75,9 +75,10 @@ with row1_col1:
     sns.barplot(data=season_goals, x="season", y="goals", color="#1f77b4", ax=ax1)
     ax1.tick_params(axis='x', rotation=45)
     sns.despine(ax=ax1)
-    st.pyplot(fig1, clear_figure=True)
     ax1.set_xlabel("Сезон")
     ax1.set_ylabel("Количество голов")
+    st.pyplot(fig1, clear_figure=True)
+    
 
 with row1_col2:
     st.subheader(" Способы голов")
@@ -86,9 +87,10 @@ with row1_col2:
     fig2, ax2 = plt.subplots(figsize=(10, 5))
     sns.barplot(data=method_counts, y="method", x="goals", hue="method", palette="crest", legend=False, ax=ax2)
     sns.despine(ax=ax2)
-    st.pyplot(fig2, clear_figure=True)
     ax2.set_xlabel("Количество голов")
     ax2.set_ylabel("Способ гола")
+    st.pyplot(fig2, clear_figure=True)
+    
 
 st.divider()
 
@@ -103,9 +105,10 @@ with row2_col1:
     fig3, ax3 = plt.subplots(figsize=(10, 5))
     sns.barplot(data=interval_counts, x="interval", y="goals", hue="interval", palette="rocket", legend=False, ax=ax3)
     sns.despine(ax=ax3)
-    st.pyplot(fig3, clear_figure=True)
     ax3.set_xlabel("Интервал матча")
     ax3.set_ylabel("Количество голов")
+    st.pyplot(fig3, clear_figure=True)
+    
 
 with row2_col2:
     st.subheader(" Топ-10 соперников")
@@ -114,9 +117,10 @@ with row2_col2:
     fig4, ax4 = plt.subplots(figsize=(10, 5))
     sns.barplot(data=opp_counts, y="opponent", x="goals", hue="opponent", palette="magma", legend=False, ax=ax4)
     sns.despine(ax=ax4)
-    st.pyplot(fig4, clear_figure=True)
     ax4.set_xlabel("Количество голов")
     ax4.set_ylabel("Соперник")
+    st.pyplot(fig4, clear_figure=True)
+    
 
 st.divider()
 
