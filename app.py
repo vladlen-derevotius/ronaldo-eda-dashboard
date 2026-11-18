@@ -82,7 +82,7 @@ with row1_col1:
 
 with row1_col2:
     st.subheader(" Способы голов")
-    method_counts = filtered_df["goal_method"].fillna("Unknown").value_counts().reset_index()
+    method_counts = filtered_df["goal_method"].dropna().value_counts().reset_index()
     method_counts.columns = ["method", "goals"]
     fig2, ax2 = plt.subplots(figsize=(10, 5))
     sns.barplot(data=method_counts, y="method", x="goals", hue="method", palette="crest", legend=False, ax=ax2)
